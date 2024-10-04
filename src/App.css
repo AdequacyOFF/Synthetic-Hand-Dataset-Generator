@@ -1,0 +1,107 @@
+@font-face {
+    font-family: "NanitoSans";
+    src: local("NanitoSans-Black"),
+      local("NanitoSans-Black"),
+      url("NanitoSans-Black.ttf") format("ttf"),
+      url("nanitosans-black.woff") format("woff"),
+      url("nanitosans-black.woff2") format("woff2"),
+    
+  }
+
+.header{
+    display: block;
+    height: 5vw;
+    max-height: 134.4px;
+}
+
+.footer{
+    display: block;
+}
+
+.main{
+   display: block;
+   margin-top: 3vw;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.neutral{
+    background-color: rgb(173, 173, 173,0.7);
+} 
+
+.joy{
+    background: rgba(245, 213, 63,0.7);
+}
+
+.sadness{
+    background: rgba(99, 111, 189,0.7);
+}
+
+.surprise{
+    background: rgba(8, 232, 222,0.7);
+}
+
+.fear{
+    background: rgba(134, 219, 74,0.5);
+}
+
+.anger{
+    background: rgba(222, 44, 44,0.5);
+}
+.output-text{
+    margin-right: 5px;
+    border-radius: 5px;
+    padding-left: 2px;
+    padding-right: 2px;
+    font-family: "NanitoSans", sans-serif;
+    font-weight: 600px;
+    font-size: 1.4vw ;
+}
+
+.output-text {
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  max-width: 100%; /* Adjust this value to fit your desired frame width */
+}
+
+.Diogram{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    height: 70%;
+    width: 70vw;
+    font-size: 2vw;
+}
+
+
+
+.TotalDiogram{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    height: 70%;
+    width: 70vw;
+    font-size: 2vw;
+}
+
+
+
+
+.profanity_flag_block{
+    padding: 1%;
+    font-size: 1.8vw;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    background-color: rgba(134, 6, 194, 0.5);
+    font-family: "NanitoSans", sans-serif;
+    border-radius: 10px; /* Adjust this value to fit your desired width */
+}
+
+.profanity_flag_attention{
+    font-family: "Impact", sans-serif;
+    font-weight: 600px;
+    font-size: 2vw;
+}
+
+
+

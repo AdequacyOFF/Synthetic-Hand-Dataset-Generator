@@ -1,0 +1,124 @@
+@font-face {
+    font-family: "NanitoSans";
+    src: local("NanitoSans-Black"),
+      local("NanitoSans-Black"),
+      url("NanitoSans-Black.ttf") format("ttf"),
+      url("nanitosans-black.woff") format("woff"),
+      url("nanitosans-black.woff2") format("woff2"),
+    
+  }
+
+
+.Logo{
+    width: 7.5vw;
+    height: auto;
+    position: absolute;
+    top: 1.5vw;
+    left: 1vw;
+}
+
+.Head{
+    background-color: rgb(42, 42, 42);
+    height: 5vw;
+    margin-top: -1%;
+    box-shadow: 0px 15px 47px 6px rgba(0, 0, 0, 0.25);
+    max-height: 134.4px;
+}
+
+
+.Head {
+    font-family: "NanitoSans", sans-serif;
+}
+
+
+.txt{
+    font-weight: 600;
+    font-size: 1.5vw !important;
+    position: absolute;
+    top:1.4vw;
+    background-color: rgba(42, 42, 42, 1);
+    left: 25vw;
+}
+.doc{
+    font-weight: 600;
+    font-size: 1.5vw !important;
+    position: absolute;
+    top:1.4vw;
+    background-color: rgba(42, 42, 42, 1);
+    left: 40vw;
+}
+.url{
+    font-weight: 600;
+    font-size: 1.4vw !important;
+    position: absolute;
+    top:1.4vw;
+    background-color: rgba(42, 42, 42, 1);
+    left: 70vw;
+}
+
+
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+a:hover{
+    text-decoration: none;
+    color: rgb(114, 114, 114);
+}
+
+a:active{
+    text-decoration: none;
+    color: rgb(114, 114, 114);
+}
+
+a::after{
+    text-decoration: none;
+    color: rgb(114, 114, 114);
+}
+
+@media (width < 900px) {
+    .Head{
+        height: 15vw;
+    }
+    .header{
+        height: 15vw;
+    }
+    .Logo{
+        width: 22.5vw;
+        height: auto;
+        position: absolute;
+        top: 4.5vw;
+        left: 3vw;
+    }
+    .txt{
+        font-weight: 600;
+        font-size: 4vw !important;
+        position: absolute;
+        top:2vw;
+        background-color: rgba(42, 42, 42, 1);
+        left: 46vw;
+    }
+    .doc{
+        font-weight: 600;
+        font-size: 4vw !important;
+        position: absolute;
+        top:6vw;
+        background-color: rgba(42, 42, 42, 1);
+        left: 35vw;
+        visibility: hidden;
+    }
+    .url{
+        font-weight: 600;
+        font-size: 4vw !important;
+        position: absolute;
+        top: 8vw;
+        background-color: rgba(42, 42, 42, 1);
+        left: 49vw;
+    }
+}
+
+
+
+
