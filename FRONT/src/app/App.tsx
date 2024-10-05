@@ -1,34 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './styles/App/App.css'
+import BackGround from './assets/videos/bg.mp4'
+import Header from '../widgets/header/ui/index'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Main from '../pages/main/ui/index.tsx'
+import Loading from '../pages/downloadSite/ui/index.tsx'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className='wrapper'>
+      <header className='Header'> <Header></Header> </header>
+      <div className="video-container">
+      <video autoPlay loop muted className="background-video">
+        <source src={BackGround} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <main className="main">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Loading />} />
+          <Route path="/main" element={<Main />} />
+        </Routes>
+      </BrowserRouter>
+      </main>
+    </div>
+
+    </div>
   )
 }
 
