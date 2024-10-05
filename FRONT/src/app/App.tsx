@@ -1,11 +1,12 @@
 import './styles/App/App.css'
 import BackGround from './assets/videos/bg.mp4'
 import Header from '../widgets/header/ui/index'
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route} from 'react-router-dom';
 import Main from '../pages/main/ui/index.tsx'
 import Loading from '../pages/downloadSite/ui/index.tsx'
+import React from 'react';
 
-function App() {
+const App: React.FC = () => {
 
   return (
     <div className='wrapper'>
@@ -15,16 +16,13 @@ function App() {
         <source src={BackGround} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-      <main className="main">
-      <BrowserRouter>
+    </div>
+    <main className="main">
         <Routes>
           <Route path="/" element={<Loading />} />
-          <Route path="/main" element={<Main />} />
+          <Route path="main" element={<Main />} />
         </Routes>
-      </BrowserRouter>
       </main>
-    </div>
-
     </div>
   )
 }

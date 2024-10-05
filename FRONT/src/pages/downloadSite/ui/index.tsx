@@ -1,7 +1,7 @@
 import '../../../app/styles/loading/Loading.css'
 
 
-function Loading() {
+const Loading: React.FC = () =>{
     return (
         <div>
 

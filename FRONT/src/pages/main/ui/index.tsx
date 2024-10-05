@@ -1,9 +1,11 @@
 
 import '../../../app/styles/main/main.css'
 
-function Main() {
+const Main: React.FC = () =>{
     return (
-        <div></div>
+        <div>
+            
+        </div>
     )
 }
 
