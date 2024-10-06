@@ -10,6 +10,8 @@ import LogoAD from '../../../app/assets/photos/Logo_ADOff.png'
 function Header() {
   const [isRightHandActive, setIsRightHandActive] = useState(false);
   const [isLeftHandActive, setIsLeftHandActive] = useState(true);
+  const [isDarkActive, setIsDarkActive] = useState(false);
+  const [isLightActive, setIsLightActive] = useState(true);
 
   const toggleRightHandState = () => {
     if (!isRightHandActive)
@@ -25,6 +27,24 @@ function Header() {
     {
         setIsRightHandActive(false);
         setIsLeftHandActive(true);
+    }
+   
+  };
+
+  const toggleLightState = () => {
+    if (!isLightActive)
+    {
+        setIsLightActive(true);
+        setIsDarkActive(false);
+    }
+    
+  };
+
+  const toggleDarkState = () => {
+    if (!isDarkActive)
+    {
+        setIsLightActive(false);
+        setIsDarkActive(true);
     }
    
   };
@@ -48,6 +68,11 @@ function Header() {
           onClick={toggleRightHandState}
         />
       </div>
+      </div>
+      <div className='Change-Skin'>
+        <p className='Skin'>КОЖА</p>
+        <p className='Light'><button className={isLightActive ? 'Active' : 'Inactive'} onClick={toggleLightState}>СВЕТЛАЯ</button></p>
+        <p className='Dark'><button className={isDarkActive ? 'Active' : 'Inactive'} onClick={toggleDarkState}>ТЁМНАЯ</button></p>
       </div>
       <div className='ADOff'>
         <img src={LogoAD} alt="" />

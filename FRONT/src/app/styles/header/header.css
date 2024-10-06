@@ -21,7 +21,7 @@
 }
 
 .Hand{
-    margin-top: 2vh;
+    margin-top: 3vh;
     z-index: -1;
 }
 
@@ -40,7 +40,10 @@
     height: 50%;
     width: auto;
     margin-top: 20%;
-    
+}
+
+.Hand img:hover {
+    cursor:pointer;
 }
 
 .ADOff p {
@@ -55,4 +58,49 @@
     text-align: center;
     height: 20%;
     margin-top: 25%;
+}
+
+.Change-Skin{
+    width: 80%;
+    margin-left: 10%;
+    justify-content: start;
+    display: grid;
+    grid-template-columns: repeat(2,50%);
+    grid-template-rows: repeat(2,50%);
+    height: 5%;
+    margin-top: 2vh;
+}
+.Skin{
+    grid-row: 1/1;
+    grid-column: 1/1;
+    color: rgb(255, 255, 255);
+    font-size: 1.3rem;
+    padding: 0;
+}
+
+.Dark{
+    grid-row: 2/2;
+    grid-column: 2/2;
+    color: rgb(158, 158, 158);
+    font-size: 0.72rem;
+    padding: 0;
+    margin-top: 1.3vh;
+}
+
+.Light{
+    grid-column: 1/1;
+    grid-row: 2/2;
+    color: rgb(158, 158, 158);
+    font-size: 0.72rem;
+    padding: 0;
+    margin-top: 1.3vh;
+}
+
+.Active{
+    color: rgb(79, 195, 243);
+    text-shadow: 0px 0px 6px rgb(79, 195, 243);
+}
+
+.Inactive{
+    color: rgb(158, 158, 158);
 }
