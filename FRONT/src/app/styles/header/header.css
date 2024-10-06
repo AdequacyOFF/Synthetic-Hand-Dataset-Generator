@@ -24,3 +24,35 @@
     margin-top: 2vh;
     z-index: -1;
 }
+
+.ADOff {
+    position: absolute; /* Add this line */
+    bottom: 0;
+    width: 90%;
+    height: 9%;
+    left: 5%;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.ADOff img {
+    height: 50%;
+    width: auto;
+    margin-top: 20%;
+    
+}
+
+.ADOff p {
+    color: rgb(158, 158, 158);
+    font-family: Roboto;
+    font-size: 0.8rem;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0px;
+    text-align: center;
+    display: block;
+    text-align: center;
+    height: 20%;
+    margin-top: 25%;
+}

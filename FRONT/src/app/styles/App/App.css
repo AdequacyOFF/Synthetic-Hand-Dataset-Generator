@@ -41,7 +41,7 @@
   height: 100%;
   width: 10%;
   left: 0;
-  z-index: 999;
+  z-index: 2;
   background: rgba(147, 176, 194, 0.39);
   box-shadow: 20px 0px 26px 12px rgba(193, 236, 241, 0.25);
 }

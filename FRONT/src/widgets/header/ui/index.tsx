@@ -5,6 +5,7 @@ import ActiveRightHand from '../../../app/assets/photos/Hands/Right_Active.png';
 import InactiveRightHand from '../../../app/assets/photos/Hands/Right_Inactive.png';
 import ActiveLeftHand from '../../../app/assets/photos/Hands/Left_Active.png';
 import InactiveLeftHand from '../../../app/assets/photos/Hands/Left_Inactive.png';
+import LogoAD from '../../../app/assets/photos/Logo_ADOff.png'
 
 function Header() {
   const [isRightHandActive, setIsRightHandActive] = useState(false);
@@ -47,6 +48,10 @@ function Header() {
           onClick={toggleRightHandState}
         />
       </div>
+      </div>
+      <div className='ADOff'>
+        <img src={LogoAD} alt="" />
+        <p>AdequacyOFF</p>
       </div>
     </div>
   );

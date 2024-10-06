@@ -3,7 +3,6 @@ import BackGround from './assets/videos/bg.mp4'
 import Header from '../widgets/header/ui/index'
 import { Routes, Route} from 'react-router-dom';
 import Main from '../pages/main/ui/index.tsx'
-import Loading from '../pages/downloadSite/ui/index.tsx'
 import React from 'react';
 
 const App: React.FC = () => {
@@ -19,8 +18,7 @@ const App: React.FC = () => {
     </div>
     <main className="main">
         <Routes>
-          <Route path="/" element={<Loading />} />
-          <Route path="main" element={<Main />} />
+          <Route path="/" element={<Main />} />
         </Routes>
     </main>
     </div>
