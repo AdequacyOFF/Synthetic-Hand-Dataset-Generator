@@ -12,17 +12,17 @@ const App: React.FC = () => {
     <div className='wrapper'>
       <header className='Header'> <Header></Header> </header>
       <div className="video-container">
-      <video autoPlay loop muted className="background-video">
-        <source src={BackGround} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+        <video autoPlay loop muted className="background-video">
+          <source src={BackGround} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
     </div>
     <main className="main">
         <Routes>
           <Route path="/" element={<Loading />} />
           <Route path="main" element={<Main />} />
         </Routes>
-      </main>
+    </main>
     </div>
   )
 }
