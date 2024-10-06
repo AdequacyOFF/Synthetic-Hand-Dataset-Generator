@@ -25,7 +25,7 @@ class HandDatasetHandler
     {
         using var channel = GrpcChannel.ForAddress("http://localhost:50051");
         var client = new HandGenerator.HandGeneratorClient(channel);
-        string filesPath = "C:\\Users\\STOLOWAR\\Desktop\\Git projects\\Synthetic-hand-generator\\CServer\\generated_hands/";
+        string filesPath = "./generated_hands/";
         var reply = client.GenerateHandDatasetStream(new HandRequest { Count = count, Race = race, Hand = hand });
         var responseStream = reply.ResponseStream;
         string logs = "";

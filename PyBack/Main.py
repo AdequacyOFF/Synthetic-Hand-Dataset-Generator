@@ -39,7 +39,7 @@ class HandGeneratorService(
         #типо получаем ответ от нейронки
         
         file_name = "240_F_85786824_12Vh2Dj32dguiI3Dktb5MFc79pzVhtWZ.png"
-        file_path = f"C:\\Users\\STOLOWAR\\Desktop\\Git projects\\Synthetic-hand-generator\\PyBack\\hand-dataset\\{file_name}"
+        file_path = f"./hand-dataset\\{file_name}"
         with open(file_path, "rb") as image:
             f = image.read()
             b = bytes(f)
@@ -61,7 +61,7 @@ class HandGeneratorService(
         #где-то тут все в нейронку
         
         #типо получаем ответ от нейронки
-        files_dir = "C:\\Users\\STOLOWAR\\Desktop\\Git projects\\Synthetic-hand-generator\\PyBack\\hand-dataset"
+        files_dir = "./PyBack/hand-dataset"
         files = os.listdir(files_dir)
         print("Дирректория с картинками: ", files_dir)
         print ("Названия всех файлов: ", files)
