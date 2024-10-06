@@ -1,3 +1,8 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
 .wrapper-header {
     padding-top: 2vh;
     width: 100%;
@@ -74,7 +79,7 @@
     grid-row: 1/1;
     grid-column: 1/1;
     color: rgb(255, 255, 255);
-    font-size: 1.3rem;
+    font-size: 1rem;
     padding: 0;
 }
 
@@ -103,4 +108,30 @@
 
 .Inactive{
     color: rgb(158, 158, 158);
+}
+
+.Count form{
+    width: 80%;
+    background: rgb(114, 114, 114);
+    margin-left: 10%;
+    margin-top: 1.3vh;
+    border-radius: 5px;
+    border: 1px solid rgb(255, 255, 255);
+    padding-left: 4%;
+    color: rgb(220, 200, 200);
+
+}
+
+.Count form input{
+    width: 100%;
+}
+
+.Count{
+    margin-top: 2vh;
+}
+
+.Count p {
+    color: rgb(255, 255, 255);
+    font-size: 1rem;
+    padding: 0;
 }
