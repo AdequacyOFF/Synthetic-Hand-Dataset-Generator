@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "Z9B8ou1uGG1oYZcJS7xlmV5r1GjmiEFKdGsxwzlXfKk=",
+  "Source": "CServer",
+  "BasePath": "_content/CServer",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

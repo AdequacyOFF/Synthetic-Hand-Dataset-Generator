@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcHandGeneratorClient";
+
+package HandGenerator;
+
+// The greeting service definition.
+service HandGenerator {
+  // Sends a greeting
+  rpc GenerateHandDataset (HandRequest) returns (HandReply);
+  rpc GenerateHandDatasetStream (HandRequest) returns (stream HandReply);
+}
+
+// The request message containing the user's name.
+message HandRequest {
+  int32 count = 1;
+  Races race = 2;  
+  Hand hand = 3;
+}
+
+message HandReply {
+  string FileName = 1;
+  bytes FileBytes = 2;
+}
+
+enum Races{
+  DARK = 0;
+  LIGHT = 1;
+}
+
+enum Hand{
+  RIGHT = 0;
+  LEFT = 1;
+}
+
