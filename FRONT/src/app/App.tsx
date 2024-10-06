@@ -1,8 +1,7 @@
 import './styles/App/App.css'
 import BackGround from './assets/videos/bg.mp4'
 import Header from '../widgets/header/ui/index'
-import { Routes, Route} from 'react-router-dom';
-import Main from '../pages/main/ui/index.tsx'
+import { Routes} from 'react-router-dom';
 import React from 'react';
 
 const App: React.FC = () => {
@@ -18,7 +17,6 @@ const App: React.FC = () => {
     </div>
     <main className="main">
         <Routes>
-          <Route path="/" element={<Main />} />
         </Routes>
     </main>
     </div>

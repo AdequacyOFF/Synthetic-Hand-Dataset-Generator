@@ -6,12 +6,18 @@ import InactiveRightHand from '../../../app/assets/photos/Hands/Right_Inactive.p
 import ActiveLeftHand from '../../../app/assets/photos/Hands/Left_Active.png';
 import InactiveLeftHand from '../../../app/assets/photos/Hands/Left_Inactive.png';
 import LogoAD from '../../../app/assets/photos/Logo_ADOff.png'
+import Start_Generate from '../../../app/assets/photos/generateStart.svg'
+import End_Generate from '../../../app/assets/photos/generateEnd.svg'
 
 const Header:React.FC = () =>{
   const [isRightHandActive, setIsRightHandActive] = useState(false);
   const [isLeftHandActive, setIsLeftHandActive] = useState(true);
   const [isDarkActive, setIsDarkActive] = useState(false);
   const [isLightActive, setIsLightActive] = useState(true);
+  const [isStartActive, setIsStartActive] = useState(true);
+  const [isEndActive, setIsEndActive] = useState(false);
+  const [inputValue, setInputValue] = useState('');
+
 
   const toggleRightHandState = () => {
     if (!isRightHandActive)
@@ -49,6 +55,34 @@ const Header:React.FC = () =>{
    
   };
 
+  const toggleStartState = () => {
+    if (isStartActive)
+    {
+        setIsStartActive(false);
+        setIsEndActive(true);
+    }
+    
+  };
+
+  const toggleEndState = () => {
+    if (isEndActive)
+    {
+        setIsEndActive(false);
+        setIsStartActive(true);
+    }
+  }; 
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(event.target.value);
+  };
+  
+  const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    console.log(inputValue)
+    event.preventDefault();
+    setInputValue(''); 
+   
+  };
+
+
   return (
     <div className="wrapper-header">
       <div className="logo_SHD"> <img src={Logo} alt="" /> </div>
@@ -76,14 +110,18 @@ const Header:React.FC = () =>{
       </div>
       <div className='Count'>
         <p>КОЛИЧЕСТВО</p>
-        <form action="/">
-          <input type="number" max={10000} min={1} inputMode="numeric" />
+        <form onSubmit={handleFormSubmit}>
+          <input type="number" max={10000} min={1} inputMode="numeric" value={inputValue} onChange={handleInputChange} />
         </form>
       </div>
       <div className='ADOff'>
         <img src={LogoAD} alt="" />
         <p>AdequacyOFF</p>
       </div>
+      <div className="Generate-wrapper">
+            <img src={Start_Generate} alt="" className="Generate start" id ={isStartActive ? 'Active' : 'Inactive'} onClick={toggleStartState} />
+            <img src={End_Generate} alt="" className="Generate end" id ={isEndActive ? 'Active' : 'Inactive'} onClick={toggleEndState} />
+        </div>
     </div>
   );
 }
