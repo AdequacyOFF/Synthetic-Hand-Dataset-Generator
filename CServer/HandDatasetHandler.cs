@@ -44,6 +44,11 @@ class HandDatasetHandler
         string targetPath = "./archive/";
         string datasetPath = targetPath + "handDataset.zip";
         ZipFile.CreateFromDirectory(filesPath, datasetPath, CompressionLevel.Optimal, false);
+        DirectoryInfo folder = new DirectoryInfo(filesPath);
+        foreach (FileInfo file in folder.GetFiles())
+        {
+            file.Delete(); 
+        }
         GeneratedHandDatasetPath = Path.GetFullPath(datasetPath);
     }
 }
