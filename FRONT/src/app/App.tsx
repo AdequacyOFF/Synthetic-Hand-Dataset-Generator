@@ -1,8 +1,8 @@
 import './styles/App/App.css'
 import BackGround from './assets/videos/bg.mp4'
-import Header from '../widgets/header/ui/index'
-import { Routes} from 'react-router-dom';
+import Header from '../widgets/header/ui/index' 
 import React from 'react';
+import Loading from '../pages/Loading/Loading.tsx'
 
 const App: React.FC = () => {
 
@@ -16,8 +16,7 @@ const App: React.FC = () => {
         </video>
     </div>
     <main className="main">
-        <Routes>
-        </Routes>
+      <Loading></Loading>
     </main>
     </div>
   )

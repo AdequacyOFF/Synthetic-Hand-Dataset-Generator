@@ -9,7 +9,6 @@ import LogoAD from '../../../app/assets/photos/Logo_ADOff.png'
 import Start_Generate from '../../../app/assets/photos/generateStart.svg'
 import End_Generate from '../../../app/assets/photos/generateEnd.svg'
 
-
 const Header:React.FC = () =>{
   const [isRightHandActive, setIsRightHandActive] = useState(false);
   const [isLeftHandActive, setIsLeftHandActive] = useState(true);
@@ -18,6 +17,7 @@ const Header:React.FC = () =>{
   const [isStartActive, setIsStartActive] = useState(true);
   const [isEndActive, setIsEndActive] = useState(false);
   const [inputValue, setInputValue] = useState('');
+  
 
   const handSide = () =>
   {
