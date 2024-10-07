@@ -1,6 +1,7 @@
 using System;
 using Grpc.Net.Client;
 using GrpcHandGeneratorClient;
+using System.IO.Compression;
 namespace CServer;
 
 class HandDatasetHandler
@@ -8,10 +9,14 @@ class HandDatasetHandler
     int count;
     Races race;
     Hand hand;
-    private string GeneratedHandDataset = "";
+    private string GeneratedHandDatasetPath = "";
     
     public HandDatasetHandler(int count, Races race, Hand hand)
     {
+        if (File.Exists("./archive/handDataset.zip"))
+        {
+                File.Delete("./archive/handDataset.zip");
+        }
         this.count = count;
         this.race = race;
         this.hand = hand;
@@ -19,7 +24,7 @@ class HandDatasetHandler
     public async Task<string> GetGeneratedHandDataset()
         {
             await RequestHandDataset();
-            return GeneratedHandDataset;
+            return GeneratedHandDatasetPath;
         }
     private async Task RequestHandDataset()
     {
@@ -28,16 +33,17 @@ class HandDatasetHandler
         string filesPath = "./generated_hands/";
         var reply = client.GenerateHandDatasetStream(new HandRequest { Count = count, Race = race, Hand = hand });
         var responseStream = reply.ResponseStream;
-        string logs = "";
         while (await responseStream.MoveNext(new CancellationToken()))
         {
             HandReply response = responseStream.Current;
             Console.WriteLine(response.FileName);
             Console.WriteLine(response.FileBytes.Length);
             Console.WriteLine();
-            logs += response.FileName + "\n" + response.FileBytes.Length + "\n\n";
             File.WriteAllBytes(filesPath + response.FileName, response.FileBytes.ToArray());
         }
-        GeneratedHandDataset = logs;
+        string targetPath = "./archive/";
+        string datasetPath = targetPath + "handDataset.zip";
+        ZipFile.CreateFromDirectory(filesPath, datasetPath, CompressionLevel.Optimal, false);
+        GeneratedHandDatasetPath = Path.GetFullPath(datasetPath);
     }
 }
