@@ -15,7 +15,15 @@ class HandDatasetHandler
     {
         if (File.Exists("./archive/handDataset.zip"))
         {
-                File.Delete("./archive/handDataset.zip");
+            File.Delete("./archive/handDataset.zip");
+        }
+        if (!Path.Exists("./generated_hands"))
+        {
+            Directory.CreateDirectory("./generated_hands");
+        }
+        if (!Path.Exists("./archive"))
+        {
+            Directory.CreateDirectory("./archive");
         }
         this.count = count;
         this.race = race;

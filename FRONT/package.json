@@ -12,6 +12,7 @@
   "dependencies": {
     "@types/react-router-dom": "^5.3.3",
     "@types/wicg-file-system-access": "^2023.10.5",
+    "front": "file:",
     "react": "^18.3.1",
     "react-background-video": "^2.0.0",
     "react-dom": "^18.3.1",

@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Protobuf Include="C:\Users\STOLOWAR\Desktop\Git projects\Synthetic-hand-generator\Protos\HandGenerator.proto" GrpcServices="Client" />
+    <Protobuf Include="..\Protos\HandGenerator.proto" GrpcServices="Client" />
     <PackageReference Include="Google.Protobuf" Version="3.28.2" />
     <PackageReference Include="Grpc.Net.Client" Version="2.66.0" />
     <PackageReference Include="Grpc.Tools" Version="2.66.0">
