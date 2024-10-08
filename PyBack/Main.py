@@ -61,7 +61,7 @@ class HandGeneratorService(
         #где-то тут все в нейронку
         
         #типо получаем ответ от нейронки
-        files_dir = "./PyBack/hand-dataset"
+        files_dir = "./Synthetic-hand-generator/PyBack/hand-dataset"
         files = os.listdir(files_dir)
         print("Дирректория с картинками: ", files_dir)
         print ("Названия всех файлов: ", files)
