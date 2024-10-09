@@ -8,6 +8,8 @@ import InactiveLeftHand from '../../../app/assets/photos/Hands/Left_Inactive.png
 import LogoAD from '../../../app/assets/photos/Logo_ADOff.png'
 import Start_Generate from '../../../app/assets/photos/generateStart.svg'
 import End_Generate from '../../../app/assets/photos/generateEnd.svg'
+import Loading from '../../../app/assets/videos/hend_3.gif'
+
 
 const Header:React.FC = () =>{
   const [isRightHandActive, setIsRightHandActive] = useState(false);
@@ -17,6 +19,8 @@ const Header:React.FC = () =>{
   const [isStartActive, setIsStartActive] = useState(true);
   const [isEndActive, setIsEndActive] = useState(false);
   const [inputValue, setInputValue] = useState('');
+  const [isLinkResive, setIsLinkResive] = useState(false);
+
   
 
   const handSide = () =>
@@ -80,50 +84,54 @@ const Header:React.FC = () =>{
   };
 
   const toggleStartState = () => {
-    if (isStartActive)
+    if (isStartActive && inputValue !== '')
     {
         setIsStartActive(false);
         setIsEndActive(true);
+        setInputValue('')
+        fetch('http://localhost:5020/generate-hand-dataset', {
+          method: 'POST', // or 'PUT'
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            count: inputValue,
+            race: race(),
+            hand: handSide(),
+          }),
+        })
+        .then(response => {
+          if (response.ok) {
+            return response.blob();
+          } else {
+            throw new Error('Failed to fetch file');
+          }
+        })
+        .then(blob => {
+          // Handle the file blob here
+          const file = new File([blob], 'GeneratedHand-archive.zip', { type: blob.type });
+          // You can now use the `file` object for further processing or saving it to the client
+          console.log('File:', file);
+          const url = URL.createObjectURL(file);
+          const link = document.createElement('a');
+          link.href = url;
+          link.download = 'GeneratedHand-archive.zip'; // Replace 'GeneratedHand-archive.zip' with the desired file name
+          link.click();
+          setIsLinkResive(true);
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
     }
-    fetch('http://localhost:5020/generate-hand-dataset', {
-      method: 'POST', // or 'PUT'
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        count: inputValue,
-        race: race(),
-        hand: handSide(),
-      }),
-    })
-    .then(response => {
-      if (response.ok) {
-        return response.blob();
-      } else {
-        throw new Error('Failed to fetch file');
-      }
-    })
-    .then(blob => {
-      // Handle the file blob here
-      const file = new File([blob], 'GeneratedHand-archive.zip', { type: blob.type });
-      // You can now use the `file` object for further processing or saving it to the client
-      console.log('File:', file);
-      const url = URL.createObjectURL(file);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = 'GeneratedHand-archive.zip'; // Replace 'GeneratedHand-archive.zip' with the desired file name
-      link.click();
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
+    
   };
 
   const toggleEndState = () => {
-    if (isEndActive)
+    if (isEndActive && isLinkResive)
     {
         setIsEndActive(false);
         setIsStartActive(true);
+        setIsLinkResive(false);
     }
   }; 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -136,6 +144,7 @@ const Header:React.FC = () =>{
     setInputValue(''); 
    
   };
+
 
 
   return (
@@ -176,6 +185,7 @@ const Header:React.FC = () =>{
       <div className="Generate-wrapper">
             <img src={Start_Generate} alt="" className="Generate start" id ={isStartActive ? 'Active' : 'Inactive'} onClick={toggleStartState} />
             <img src={End_Generate} alt="" className="Generate end" id ={isEndActive ? 'Active' : 'Inactive'} onClick={toggleEndState} />
+            <img src={Loading} alt="video/gif" className='Loading_gif'id ={isEndActive && !isLinkResive  ? 'Active' : 'Inactive'}/>
         </div>
     </div>
   );

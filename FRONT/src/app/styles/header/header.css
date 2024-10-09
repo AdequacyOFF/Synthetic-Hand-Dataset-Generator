@@ -150,6 +150,7 @@ input::-webkit-inner-spin-button {
 
 .Generate {
     position: absolute;
+    z-index: 999;
 }
 
 .Generate-wrapper{
@@ -185,4 +186,14 @@ input::-webkit-inner-spin-button {
 
 #Inactive{
     visibility: hidden;
+}
+
+.Loading {
+    z-index: 1000;
+}
+
+.Loading_gif{
+    margin-top: 40vh;
+    height: 60%;
+    width: auto !important;
 }
