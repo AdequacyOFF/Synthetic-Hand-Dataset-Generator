@@ -39,6 +39,7 @@ app.MapPost("/generate-hand-dataset", async (HttpRequest request) =>
     {
         HandDatasetHandler handler = new(json.count, (Races)Enum.Parse(typeof(Races), json.race), (Hand)Enum.Parse(typeof(Hand), json.hand));
             string datasetPath = await handler.GetGeneratedHandDataset();
+            await Task.Delay(5000);
             return Results.File(datasetPath);
     }
     else
