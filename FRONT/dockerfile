@@ -1,0 +1,24 @@
+# Use an official Node runtime as a parent image
+FROM node:20
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy package.json and package-lock.json
+COPY FRONT/package*.json ./
+RUN ls -al
+# Install dependencies
+RUN npm install
+
+# Copy the rest of the application code
+COPY FRONT ./
+
+# Build the app
+RUN npm run build
+
+# Install serve to run the application
+#RUN npm install -g serve
+#EXPOSE 5173
+#CMD ["npm", "start"]
+# Serve the app on port 5173
+#CMD ["serve", "-s", "build", "-l", "5173"]
+CMD ["npm", "run", "dev","--", "--host"]

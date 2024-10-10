@@ -1,4 +1,4 @@
-@CServer_HostAddress = http://localhost:5020
+@CServer_HostAddress = http://0.0.0.0:5020
 
 GET {{CServer_HostAddress}}/weatherforecast/
 Accept: application/json
