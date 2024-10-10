@@ -1,0 +1,49 @@
+# Please refer https://aka.ms/HTTPSinContainer on how to setup an https developer certificate for your ASP.NET Core service.
+
+version: '3.8'
+
+services:
+  cserver:
+    image: shd-cserver
+    container_name: cserver
+    build:
+      context: .
+      dockerfile: CServer/Dockerfile
+    depends_on:
+    - pyneural
+    ports:
+      - 5020:5020
+    networks:
+    - app-network
+
+  front:
+    image: shd-front
+    container_name: front
+    build:
+      context: .
+      dockerfile: FRONT/Dockerfile
+    depends_on:
+      - cserver
+    ports:
+      - 5173:5173
+    networks:
+    - app-network
+
+
+  pyneural:
+    image: shd-pyneural
+    container_name: pyneural
+    # Build the Docker image from the Dockerfile in the current directory
+    build: 
+      context: .
+      dockerfile: PyBack/Dockerfile
+    # Map port 50051 on the host to port 50051 in the container
+    ports:
+      - 50051:50051
+    working_dir: /app
+    networks:
+    - app-network
+  
+networks:
+  app-network:
+    external: true

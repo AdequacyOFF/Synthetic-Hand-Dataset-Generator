@@ -51,7 +51,7 @@ app.MapPost("/generate-hand-dataset", async (HttpRequest request) =>
 .WithOpenApi();
 
 
-app.Run("http://localhost:5020");
+app.Run("http://0.0.0.0:5020");
 
 record WebHandRequest(int count, string race, string hand);
 

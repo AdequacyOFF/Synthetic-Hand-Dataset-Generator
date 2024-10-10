@@ -36,7 +36,7 @@ class HandDatasetHandler
         }
     private async Task RequestHandDataset()
     {
-        using var channel = GrpcChannel.ForAddress("http://localhost:50051");
+        using var channel = GrpcChannel.ForAddress("http://172.18.0.2:50051");
         var client = new HandGenerator.HandGeneratorClient(channel);
         string filesPath = "./generated_hands/";
         var reply = client.GenerateHandDatasetStream(new HandRequest { Count = count, Race = race, Hand = hand });
