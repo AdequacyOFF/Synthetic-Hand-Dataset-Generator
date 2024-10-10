@@ -197,3 +197,26 @@ input::-webkit-inner-spin-button {
     height: 60%;
     width: auto !important;
 }
+
+.Ready{ 
+    position: absolute;
+    top: 90vh;
+    left: 30vw;
+    width: 40vw;
+    height: 5vh;
+    filter: blur(10px);
+    background: rgba(0, 180, 249, 0.5);
+}
+
+.Ready_text{
+    position: absolute;
+    top: 90vh;
+    left: 30vw;
+    width: 40vw;
+    height: 3vh;
+    font-size: 2rem;
+    color: rgb(0, 249, 0);
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    filter: blur(0px) !important;
+}
