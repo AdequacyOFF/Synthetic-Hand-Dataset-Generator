@@ -84,7 +84,7 @@ const Header:React.FC = () =>{
   };
 
   const toggleStartState = () => {
-    if (isStartActive && inputValue !== '')
+    if (isStartActive && inputValue !== '' )
     {
         setIsStartActive(false);
         setIsEndActive(true);
@@ -175,7 +175,7 @@ const Header:React.FC = () =>{
       <div className='Count'>
         <p>КОЛИЧЕСТВО</p>
         <form onSubmit={handleFormSubmit}>
-          <input type="number" max={10000} min={1} inputMode="numeric" value={inputValue} onChange={handleInputChange} />
+          <input type="number"  max={10000} min={1} inputMode="numeric" value={inputValue} onChange={handleInputChange} />
         </form>
       </div>
       <div className='ADOff'>
@@ -186,6 +186,10 @@ const Header:React.FC = () =>{
             <img src={Start_Generate} alt="" className="Generate start" id ={isStartActive ? 'Active' : 'Inactive'} onClick={toggleStartState} />
             <img src={End_Generate} alt="" className="Generate end" id ={isEndActive ? 'Active' : 'Inactive'} onClick={toggleEndState} />
             <img src={Loading} alt="video/gif" className='Loading_gif'id ={isEndActive && !isLinkResive  ? 'Active' : 'Inactive'}/>
+            <div className='Ready'id ={isEndActive && isLinkResive  ? 'Active' : 'Inactive'}></div>
+            <p  className='Ready_text'id ={isEndActive && isLinkResive  ? 'Active' : 'Inactive'} onClick={toggleEndState}>
+                ГОТОВО
+            </p>
         </div>
     </div>
   );
