@@ -14,8 +14,3 @@ services:
     ports:
       - 50051:50051
     working_dir: /app
-    networks:
-    - app-network
-  
-networks:
-  app-network:
