@@ -1,5 +1,3 @@
-# recommendations/recommendations.py
-
 from concurrent import futures
 
 import grpc
@@ -12,17 +10,16 @@ import gdown
 import shutil
 
 from grpc_core.HandGenerator_pb2 import (
-    Races, #enum BookCategory
-    Hand, #еще enum
-    #message BookRecommendation вложеный в ответ класс
-    HandReply, #message RecommendationResponse это ответ
+    Races,
+    Hand,
+    HandReply,
 )
 
 import grpc_core.HandGenerator_pb2_grpc as HG_grpc
 
-hand_by_races = {Races.DARK:"DARK", Races.LIGHT:"LIGHT"} #books_by_category
+hand_by_races = {Races.DARK:"DARK", Races.LIGHT:"LIGHT"}
 
-hand_by_dir = {Hand.RIGHT:"RIGHT", Hand.LEFT:"LEFT"} #books_by_author
+hand_by_dir = {Hand.RIGHT:"RIGHT", Hand.LEFT:"LEFT"}
 
 class HandGeneratorService(
     HG_grpc.HandGeneratorServicer,
