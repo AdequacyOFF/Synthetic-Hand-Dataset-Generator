@@ -9,6 +9,7 @@
 ```python
 server.add_insecure_port("[::]:50051")
 ```
+    - d
 - Адрес, по которому подключается grcp клиент указывается в файле Program.cs проекта ConsoleClient.cs
 ```C#
 string grcpAdress = "http://localhost:50051"; // replace with your gRPC server address
