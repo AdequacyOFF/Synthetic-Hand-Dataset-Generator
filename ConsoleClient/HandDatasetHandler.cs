@@ -28,9 +28,9 @@ public class HandDatasetHandler
         this.race = race;
         this.hand = hand;
     }
-    public async Task<string> RequestHandDataset(bool CreateZip = true, string filesPath = "./generated_hands/")
+    public async Task<string> RequestHandDataset(string grcpAdress = "http://localhost:50051",bool CreateZip = true, string filesPath = "./generated_hands/")
     {
-        using var channel = GrpcChannel.ForAddress("http://172.18.0.2:50051");
+        using var channel = GrpcChannel.ForAddress(grcpAdress);
         var client = new HandGenerator.HandGeneratorClient(channel);
         var reply = client.GenerateHandDatasetStream(new HandRequest { Count = count, Race = race, Hand = hand });
         var responseStream = reply.ResponseStream;
@@ -39,8 +39,7 @@ public class HandDatasetHandler
             HandReply response = responseStream.Current;
             Console.WriteLine(response.FileName);
             Console.WriteLine(response.FileBytes.Length);
-            Console.WriteLine();
-            File.WriteAllBytes(filesPath + response.FileName, response.FileBytes.ToArray());
+            File.WriteAllBytes(filesPath + "\\" + response.FileName, response.FileBytes.ToArray());
         }
         if (CreateZip)
         {
