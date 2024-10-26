@@ -31,4 +31,7 @@ netsh advfirewall firewall add rule name="Docker WSL2 Access" dir=in action=allo
 ```
 3. Запускаем ConsoleClient на клиентской машине, указываем путь для сохранения датасета и его параметры
 - - в коде ConsoleClient/Program.cs меняем адрес gRPC сервиса на адрес машины с WSL в локальной сети
+``` C#
+string grcpAdress = "http://192.168.1.100:50051"; // replace with your gRPC server address
+```
 
