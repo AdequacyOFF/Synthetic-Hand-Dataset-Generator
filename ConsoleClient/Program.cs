@@ -2,8 +2,8 @@
 using GrpcHandGeneratorClient;
 
 Console.WriteLine("SHD was started");
-    string grcpAdress = "http://localhost:50051"; // replace with your gRPC server address
-    Console.WriteLine("Please enter path to save dataset, if not exist, it will be:");
+    string grcpAdress = "http://192.168.1.100:50051"; // replace with your gRPC server address
+    Console.WriteLine("Please enter path to save dataset, if not exist, it will be created:");
     string datasetPath = Console.ReadLine();
     if (!Directory.Exists(datasetPath) && datasetPath != "")
     {
